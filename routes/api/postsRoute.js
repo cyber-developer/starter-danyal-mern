@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {check,validationResult} =require('express-validator')
-const auth=require('../../middleware/auth');
-const Post =require('../../models/Post');
-const User =require('../../models/User');
-const Profile=require('../../models/Profile');
+const {check,validationResult} = require('express-validator')
+const auth = require('../../middleware/auth');
+const Post = require('../../models/PostModel');
+const User = require('../../models/UserModel');
+const Profile = require('../../models/ProfileModel');
 
 // post api/post create a post private
 
@@ -20,7 +20,6 @@ router.post('/',[auth,[
 
     try {
         const user = await User.findById(req.user.id).select('-password');
-
         const newPost = new Post({
         text:req.body.text,
         name:user.name,

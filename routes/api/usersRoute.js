@@ -6,7 +6,7 @@
  const jwt=require('jsonwebtoken');
  const config =require('config');
  
-const User =require('../../models/User');
+const User =require('../../models/UserModel');
 const { JsonWebTokenError } = require('jsonwebtoken');
 
  // route post api/users

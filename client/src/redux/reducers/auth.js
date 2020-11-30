@@ -35,10 +35,6 @@ export default function(state=initalState,action){
                 loading:false,
                 user:action.payload
             }
-        
-           
-        
         default : return state
     }
-
 }

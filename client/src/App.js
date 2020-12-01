@@ -4,6 +4,7 @@ import {BrowserRouter as Router ,Route,Switch} from 'react-router-dom'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Navbar from './components/layout/Navbar';
+import Dashboard from './components/dashboard/Dashboard'
 import Landing from './components/layout/Landing'
 import {Provider} from 'react-redux';
 import store from './redux/store'
@@ -34,6 +35,7 @@ function App() {
             <Switch>
               <Route  path='/register' component={Register}/>
               <Route  path='/login' component={Login}/>
+              <Route  path='/dashboard' component={Dashboard}/>
             </Switch>
           </section>
       </Fragment>

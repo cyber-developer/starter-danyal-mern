@@ -4,14 +4,14 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers'
 import logger from 'redux-logger'
 
-const initialState={}
+const initialState = {}
 
 const middleware = [thunk];
 
-const store =createStore(
-    rootReducer,
-    initialState,
-    composeWithDevTools(applyMiddleware(...middleware,logger))
+const store = createStore(
+  rootReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware,logger))
 );
 
 export default store;

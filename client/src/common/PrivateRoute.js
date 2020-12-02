@@ -4,10 +4,10 @@ import { Route, Redirect } from 'react-router-dom';
 
 const auth = useSelector(state=>state.auth);
 function PrivateRoute({component: Component,...rest}){
-   return(
+  return(
     <Route
-    {...rest}
-    render={props =>
+      {...rest}
+      render={props =>
       auth.isAuthenticated === true ? (
         <Component {...props} />
       ) : (
@@ -15,7 +15,7 @@ function PrivateRoute({component: Component,...rest}){
       )
     }
   />
-   )
+  )
 }
 
 

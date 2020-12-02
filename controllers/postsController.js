@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const {check,validationResult} = require('express-validator')
-const auth = require('../../middleware/auth');
-const Post = require('../../models/PostModel');
-const User = require('../../models/UserModel');
-const Profile = require('../../models/ProfileModel');
+const auth = require('../middleware/auth');
+const Post = require('../models/PostModel');
+const User = require('../models/UserModel');
+const Profile = require('../models/ProfileModel');
 
 exports.create_post = async (req,res) => {
   const errors = validationResult(req);

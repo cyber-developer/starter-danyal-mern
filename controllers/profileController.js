@@ -1,9 +1,7 @@
 const express = require('express');
-const router = express.Router();
-const auth=require('../../middleware/auth');
-const Profile =require('../../models/ProfileModel');
+const Profile =require('../models/ProfileModel');
 const {check, validationResult} =require('express-validator');
-const User = require('../../models/UserModel');
+const User = require('../models/UserModel');
 
 exports.get_profile_data = async(req, res) => { 
 try 

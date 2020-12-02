@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const jwt= require('jsonwebtoken');
 const config = require('config');
  
-const User = require('../../models/UserModel');
+const User = require('../models/UserModel');
 const { JsonWebTokenError } = require('jsonwebtoken');
 
 exports.create_user = async (req,res) => { 

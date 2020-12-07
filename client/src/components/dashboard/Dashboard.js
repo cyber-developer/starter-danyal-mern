@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCurrentProfile } from '../../redux/action/profile'
-import Spinner from '../../common/Spinner'
+import { getCurrentProfile } from 'redux/action/profileAction'
+import Spinner from 'common/Spinner'
 
 function Dashboard () {
   const dispatch = useDispatch()

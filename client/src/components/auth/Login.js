@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { login } from '../../redux/action/auth'
+import { login } from 'redux/action/authAction'
 
 function Login () {
   const dispatch = useDispatch()

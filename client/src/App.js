@@ -9,7 +9,7 @@ import Landing from './components/layout/Landing'
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import Alert from './components/layout/Alert'
-import { loadUser } from './redux/action/auth'
+import { loadUser } from './redux/action/authAction'
 import setAuthToken from './utils/setAuthToken'
 
 if (localStorage.token) {

@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
-const User = require('../../models/UserModel')
+const User = require('../models/UserModel')
 
 exports.getAuth = async function (req, res) {
   try {

@@ -1,4 +1,5 @@
 const express = require('express')
+
 const cors = require('cors')
 const connectDB = require('./config/db')
 
@@ -19,6 +20,6 @@ app.use('/api/auth', require('./routes/api/authRoute'))
 app.use('/api/posts', require('./routes/api/postsRoute'))
 app.use('/api/profile', require('./routes/api/profileRoute'))
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT ||  0
 
 app.listen(PORT, () => console.log(`server started on PORT ${PORT}`))

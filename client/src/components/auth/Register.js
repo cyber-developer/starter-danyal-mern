@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { setAlert } from '../../redux/action/alert'
-import { register } from '../../redux/action/auth'
+import { setAlert } from 'redux/action/alertAction'
+import { register } from 'redux/action/authAction'
 
 function Register () {
   const dispatch = useDispatch()

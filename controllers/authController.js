@@ -7,10 +7,7 @@ const User = require('../models/UserModel')
 exports.getAuth = async function (req, res) {
   try {
     const user = await User.findById(req.user.id).select('-password')
-    if (!user) {
-      res.status(404).send('user not found')
-      res.json(user)
-    }
+    res.json(user)
   } catch (error) {
     console.log(error.message)
     res.status(500).send('Server Error')

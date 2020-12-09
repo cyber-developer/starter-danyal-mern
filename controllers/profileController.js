@@ -67,7 +67,7 @@ exports.create_update_profile = async (req, res) => {
 
 exports.get_all_profile = async (req, res) => {
   try {
-    const profile = await Profile.find()
+    const profile = await Profile.find().populate('user', ['name', 'avatar'])
     res.json(profile)
   } catch (error) {
     console.log(error.message)
@@ -119,5 +119,6 @@ exports.put_profile_experience = async (req, res) => {
       res.status(500).send('server error')
     }
   } catch (error) {
+
   }
 }

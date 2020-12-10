@@ -27,7 +27,7 @@ export const getCurrentProfile = () => async dispatch => {
 // get all profile
 
 export const getProfiles = () => async dispatch => {
-  dispatch({type: CLEAR_PROFILE})
+  dispatch({ type: CLEAR_PROFILE })
   try {
     const res = await axios.get('http://localhost:5000/api/profile/')
 
@@ -43,7 +43,7 @@ export const getProfiles = () => async dispatch => {
   }
 }
 
-// get all profile by id 
+// get all profile by id
 
 export const getProfileById = (userId) => async dispatch => {
   try {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addExperience } from 'redux/action/profileAction'
 import { Link } from 'react-router-dom'
+import InputForm from 'components/formCommon/InputForm'
 
 function AddExperience ({ history }) {
   const [formData, setformData] = useState({
@@ -38,15 +39,11 @@ function AddExperience ({ history }) {
           dispatch(addExperience(formData, history))
         }}
       >
-        <div className='form-group'>
-          <input type='text' placeholder='* Job Title' name='title' required value={title} onChange={(e) => onChange(e)} />
-        </div>
-        <div className='form-group'>
-          <input type='text' placeholder='* Company' name='company' required value={company} onChange={(e) => onChange(e)} />
-        </div>
-        <div className='form-group'>
-          <input type='text' placeholder='Location' name='location' value={location} onChange={(e) => onChange(e)} />
-        </div>
+        
+        <InputForm type='text' placeholder='* Job Title' name='title' value={title} onChange={(e) => onChange(e)} required={true} />
+        <InputForm type='text' placeholder='* Company' name='company' required value={company} onChange={(e) => onChange(e)} required={true} />
+        <InputForm type='text' placeholder='Location' name='location' value={location} onChange={(e) => onChange(e)} />
+
         <div className='form-group'>
           <h4>From Date</h4>
           <input type='date' name='from' value={from} onChange={(e) => onChange(e)} />
@@ -75,7 +72,7 @@ function AddExperience ({ history }) {
           />
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <a className='btn btn-light my-1' href='dashboard.html'>Go Back</a>
+        <Link className='btn btn-light my-1' to='/dashboard'>Go Back</Link>
       </form>
     </>
   )

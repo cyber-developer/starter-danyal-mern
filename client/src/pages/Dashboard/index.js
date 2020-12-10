@@ -1,9 +1,9 @@
-import Spinner from 'common/Spinner'
+import Spinner from 'components/formCommon/Spinner'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import { getCurrentProfile } from 'redux/action/profileAction'
-import DashboardAction from './DashboardAction'
+import DashboardAction from './Action'
 
 function Dashboard () {
   const dispatch = useDispatch()

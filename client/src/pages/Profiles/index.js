@@ -1,14 +1,14 @@
-import Spinner from 'common/Spinner'
+import Spinner from 'components/formCommon/Spinner'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getProfiles } from 'redux/action/profileAction'
-import ProfileItem from './ProfileItem'
+import ProfileItem from './Item'
 
 const Profiles = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getProfiles());
+    dispatch(getProfiles())
   }, [])
 
   const rprofile = useSelector(state => state.profile)
@@ -28,7 +28,7 @@ const Profiles = () => {
             ))
           ) : <h4>No Profiles found...</h4>}
         </div>
-        </>}
+      </>}
     </>
   )
 }

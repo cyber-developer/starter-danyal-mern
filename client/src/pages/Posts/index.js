@@ -2,8 +2,7 @@ import Spinner from 'components/formCommon/Spinner'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getPosts } from 'redux/action/postAction'
-import PostForm from './Form'
-import PostItem from './Item'
+import List from './List'
 
 function Posts () {
   const post = useSelector(state => state.post)
@@ -12,24 +11,12 @@ function Posts () {
 
   useEffect(() => {
     dispatch(getPosts())
-  }, [getPosts])
+  }, [])
+
   return loading ? (
     <Spinner />
   ) : (
-    <>
-      <h1 className='large text-primary'>
-        Posts
-      </h1>
-      <p className='lead'><i className='fas fa-user' /> Welcome to the community!</p>
-
-      <PostForm />
-
-      <div className='posts'>
-        {posts.map((post) => (
-          <PostItem key={post._id} post={post} />
-        ))}
-      </div>
-    </>
+    <List posts={posts} />
   )
 }
 

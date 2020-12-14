@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputForm({
+function InputForm ({
   name,
   placeholder,
   value,
@@ -8,11 +8,11 @@ function InputForm({
   icon,
   type,
   onChange,
-  required=false
+  required = false
 }) {
   return (
     <div className='form-group'>
-      <input type={type} placeholder={placeholder} name={name}  value={value} onChange={onChange} required={required} />
+      <input type={type} placeholder={placeholder} name={name} value={value} onChange={onChange} required={required} />
     </div>
   )
 }

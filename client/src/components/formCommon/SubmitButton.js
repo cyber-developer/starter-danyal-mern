@@ -1,13 +1,13 @@
 import React from 'react'
 
-function SubmitButton({onClick}) {
+function SubmitButton ({ onClick }) {
   return (
     <button
       type='button'
       className='btn btn-danger'
       onClick={onClick}
     >
-    <i className='fas fa-times' />
+      <i className='fas fa-times' />
     </button>
   )
 }

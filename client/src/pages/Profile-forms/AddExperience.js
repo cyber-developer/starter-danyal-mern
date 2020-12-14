@@ -39,9 +39,9 @@ function AddExperience ({ history }) {
           dispatch(addExperience(formData, history))
         }}
       >
-        
-        <InputForm type='text' placeholder='* Job Title' name='title' value={title} onChange={(e) => onChange(e)} required={true} />
-        <InputForm type='text' placeholder='* Company' name='company' required value={company} onChange={(e) => onChange(e)} required={true} />
+
+        <InputForm type='text' placeholder='* Job Title' name='title' value={title} onChange={(e) => onChange(e)} required />
+        <InputForm type='text' placeholder='* Company' name='company' required value={company} onChange={(e) => onChange(e)} required />
         <InputForm type='text' placeholder='Location' name='location' value={location} onChange={(e) => onChange(e)} />
 
         <div className='form-group'>

@@ -7,69 +7,64 @@ import {
   GET_PROFILES,
   CLEAR_PROFILE
 } from './types'
+import { get, put, del, post } from 'services/restService'
 
 // Get current profile
 export const getCurrentProfile = () => async dispatch => {
-  try {
-    const res = await axios.get('http://localhost:5000/api/profile/me')
+  get('/api/profile/me').then(res => {
     dispatch({
       type: GET_PROFILE,
       payload: res.data
     })
-  } catch (err) {
+  }).catch(error => {
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: error }
     })
-  }
+  })
 }
 
 // get all profile
 
 export const getProfiles = () => async dispatch => {
   dispatch({ type: CLEAR_PROFILE })
-  try {
-    const res = await axios.get('http://localhost:5000/api/profile/')
-
+  axios.get('/api/profile/').then(res => {
     dispatch({
       type: GET_PROFILES,
       payload: res.data
     })
-  } catch (err) {
+  }).catch(error => {
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: error.response.statusText, status: error.response.status }
     })
-  }
+  })
 }
 
 // get all profile by id
 
 export const getProfileById = (userId) => async dispatch => {
-  try {
-    const res = await axios.get(`http://localhost:5000/api/profile/user/${userId}`)
+  get(`/api/profile/user/${userId}`).then(res => {
     dispatch({
       type: GET_PROFILE,
       payload: res.data
     })
-  } catch (err) {
+  }).catch(error => {
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: error.response.statusText, status: error.response.status }
     })
-  }
+  })
 }
 
 // Create or update Profile
 export const createProfile = (formData, history, edit = false) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
     }
-
-    const res = await axios.post('http://localhost:5000/api/profile', formData, config)
+  }
+  post('/api/profile', formData, config).then(res => {
     dispatch({
       type: GET_PROFILE,
       payload: res.data
@@ -80,7 +75,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
     if (!edit) {
       history.push('/dashboard')
     }
-  } catch (error) {
+  }).catch(error => {
     const errors = error.response.data.errors
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
@@ -89,20 +84,19 @@ export const createProfile = (formData, history, edit = false) => async dispatch
       type: PROFILE_ERROR,
       payload: { msg: error.response.statusText, status: error.response.status }
     })
-  }
+  })
 }
 
 // ADD EXPERIENCE
 
 export const addExperience = (formData, history) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
     }
+  }
 
-    const res = await axios.put('http://localhost:5000/api/profile/experience', formData, config)
+  put('http://localhost:5000/api/profile/experience', formData, config).then(res => {
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data
@@ -111,7 +105,7 @@ export const addExperience = (formData, history) => async dispatch => {
     dispatch(setAlert('EXPERIENCE ADDDED'))
 
     history.push('/dashboard')
-  } catch (error) {
+  }).catch(error => {
     const errors = error.response.data.errors
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
@@ -120,5 +114,5 @@ export const addExperience = (formData, history) => async dispatch => {
       type: PROFILE_ERROR,
       payload: { msg: error.response.statusText, status: error.response.status }
     })
-  }
+  })
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function NotFound() {
+function NotFound () {
   return (
     <>
       <center>
-        <h1 className="x-large text-primary" >
-        Page Not Found
+        <h1 className='x-large text-primary'>
+          Page Not Found
         </h1>
       </center>
     </>
